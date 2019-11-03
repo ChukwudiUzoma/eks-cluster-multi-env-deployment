@@ -41,7 +41,7 @@ resource "aws_autoscaling_group" "demo" {
   launch_configuration = aws_launch_configuration.demo.id
   max_size = var.max_size
   min_size = var.min_size
-  name = "var.cluster-name"
+  name = var.cluster-name
   # TF-UPGRADE-TODO: In Terraform v0.10 and earlier, it was sometimes necessary to
   # force an interpolation expression to be interpreted as a list by wrapping it
   # in an extra set of list brackets. That form was supported for compatibilty in
@@ -54,7 +54,7 @@ resource "aws_autoscaling_group" "demo" {
 
   tag {
     key = "Name"
-    value = "var.cluster-name"
+    value = var.cluster-name
     propagate_at_launch = true
   }
 
